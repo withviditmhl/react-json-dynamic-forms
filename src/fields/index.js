@@ -41,7 +41,6 @@ export default class Form extends React.Component {
     })
     this.props.onChange(elements)
   }
-
   onFocus(event, metaData) {
     let elements = _.cloneDeep(this.props.elements)
     elements = _.map(elements, element => {
@@ -53,7 +52,6 @@ export default class Form extends React.Component {
     })
     this.props.onFocus(elements)
   }
-  
   onBlur(event, metaData) {
     let elements = _.cloneDeep(this.props.elements)
     elements = _.map(elements, element => {
@@ -65,7 +63,6 @@ export default class Form extends React.Component {
     })
     this.props.onBlur(elements)
   }
-  
   validation(metaData, event, element) {
     if (!_.isEmpty(_.get(metaData, 'validation', {}))) {
       const data = {
