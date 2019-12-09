@@ -26,8 +26,8 @@ export default class Form extends React.Component {
   constructor(props) {
     super(props)
     this.onChange = this.onChange.bind(this)
-    this.onFocus = this.onFocus.bind(this)
-    this.onBlur = this.onBlur.bind(this)
+    // this.onFocus = this.onFocus.bind(this)
+    // this.onBlur = this.onBlur.bind(this)
     this.mergeCustomComponents = this.mergeCustomComponents.bind(this)
   }
   onChange(event, metaData) {
@@ -41,28 +41,28 @@ export default class Form extends React.Component {
     })
     this.props.onChange(elements)
   }
-  onFocus(event, metaData) {
-    let elements = _.cloneDeep(this.props.elements)
-    elements = _.map(elements, element => {
-      if (element.id === event.id) {
-        _.assign(element, event)
-        this.validation(metaData, event, element)
-      }
-      return element
-    })
-    this.props.onFocus(elements)
-  }
-  onBlur(event, metaData) {
-    let elements = _.cloneDeep(this.props.elements)
-    elements = _.map(elements, element => {
-      if (element.id === event.id) {
-        _.assign(element, event)
-        this.validation(metaData, event, element)
-      }
-      return element
-    })
-    this.props.onBlur(elements)
-  }
+  // onFocus(event, metaData) {
+  //   let elements = _.cloneDeep(this.props.elements)
+  //   elements = _.map(elements, element => {
+  //     if (element.id === event.id) {
+  //       _.assign(element, event)
+  //       this.validation(metaData, event, element)
+  //     }
+  //     return element
+  //   })
+  //   this.props.onFocus(elements)
+  // }
+  // onBlur(event, metaData) {
+  //   let elements = _.cloneDeep(this.props.elements)
+  //   elements = _.map(elements, element => {
+  //     if (element.id === event.id) {
+  //       _.assign(element, event)
+  //       this.validation(metaData, event, element)
+  //     }
+  //     return element
+  //   })
+  //   this.props.onBlur(elements)
+  // }
   validation(metaData, event, element) {
     if (!_.isEmpty(_.get(metaData, 'validation', {}))) {
       const data = {
@@ -115,12 +115,12 @@ export default class Form extends React.Component {
         onChange={
           (event) => this.onChange(event, metadata)
         }
-        onFocus={
-          (event) => this.onFocus(event, metadata)
-        }
-        onBlur={
-          (event) => this.onBlur(event, metadata)
-        }
+        // onFocus={
+        //   (event) => this.onFocus(event, metadata)
+        // }
+        // onBlur={
+        //   (event) => this.onBlur(event, metadata)
+        // }
         {...metadata
         }
       />
@@ -136,8 +136,8 @@ export default class Form extends React.Component {
 Form.propTypes = {
   elements: PropTypes.array,
   onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
+  // onFocus: PropTypes.func,
+  // onBlur: PropTypes.func,
   metaData: PropTypes.object,
   className: PropTypes.string,
   customComponents: PropTypes.object
