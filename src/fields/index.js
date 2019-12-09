@@ -26,6 +26,8 @@ export default class Form extends React.Component {
   constructor(props) {
     super(props)
     this.onChange = this.onChange.bind(this)
+    this.onFocus = this.onFocus.bind(this)
+    this.onBlur = this.onBlur.bind(this)
     this.mergeCustomComponents = this.mergeCustomComponents.bind(this)
   }
   onChange(event, metaData) {
@@ -115,7 +117,14 @@ export default class Form extends React.Component {
       <Annotation key={element.id} id={element.id}
         onChange={
           (event) => this.onChange(event, metadata)
-        } {...metadata
+        }
+        onFocus={
+          (event) => this.onFocus(event, metadata)
+        }
+        onBlur={
+          (event) => this.onBlur(event, metadata)
+        }
+        {...metadata
         }
       />
     )
@@ -130,6 +139,8 @@ export default class Form extends React.Component {
 Form.propTypes = {
   elements: PropTypes.array,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
   metaData: PropTypes.object,
   className: PropTypes.string,
   customComponents: PropTypes.object
