@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  text-align: center;
+}
+.reactform {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+}
+.fields {
+  width: 350px;
+  margin: 20px !important;
+}
